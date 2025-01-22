@@ -1,0 +1,37 @@
+/* OurWorkCard.css */
+
+/* Container for image */
+.img-area {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .imgFile {
+    width: 100%;
+    height: auto;
+    transition: transform 8s ease-in-out;
+  }
+  
+  /* On hover, apply vertical scroll animation */
+  .img-area:hover .imgFile {
+    cursor: pointer;
+    animation: scrollImage 6s ease-in-out forwards;
+  }
+  
+  /* Keyframes to scroll the image vertically */
+  @keyframes scrollImage {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+  
+
+
+  .projectName{
+    -webkit-text-stroke: 0.5px #d946ef;
+  }
