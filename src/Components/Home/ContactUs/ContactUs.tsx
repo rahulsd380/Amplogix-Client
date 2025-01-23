@@ -16,7 +16,7 @@ type FormData = {
   from_email: string;
   phone: string;
   message: string;
-  budget: string;
+  // budget: string;
 };
 
 const ContactUs = () => {
@@ -101,7 +101,7 @@ const ContactUs = () => {
                 className="w-full"
                 error={errors.phone?.message}
               />
-              <select
+              {/* <select
                 {...register("budget", { required: "Budget is required" })}
                 className="border border-border-10 rounded-md py-2 px-4 w-full text-white bg-white bg-opacity-5 focus:outline-none focus:border-2 focus:ring-0"
               >
@@ -111,9 +111,8 @@ const ContactUs = () => {
                 <option className="text-neutral-10" value="₹50000-₹80000">₹50000-80000</option>
                 <option className="text-neutral-10" value="₹80000-₹100000">₹80000-₹100000</option>
                 <option className="text-neutral-10" value="₹100000-Above">₹100000-Above</option>
-                {/* <option className="text-neutral-10" value="other">Other</option> */}
               </select>
-              {errors.budget && <p className="text-red-500 text-sm">{errors.budget.message}</p>}
+              {errors.budget && <p className="text-red-500 text-sm">{errors.budget.message}</p>} */}
 
               <InputField
                 {...register("message", { required: "Message is required" })}
@@ -152,10 +151,8 @@ const ContactUs = () => {
         setOpenModal={setOpenProjectModal}
         heading={"Success!"} step={3} setStep={function (): void {
           throw new Error("Function not implemented.");
-        }} handleNextStep={function (): void {
-          throw new Error("Function not implemented.");
-        }} loading={false}>
-        <MessageReceived icon={ICONS.successBox} />
+        }} >
+        <MessageReceived icon={ICONS.successBox} setOpenModal={setOpenProjectModal} />
       </Modal>
       <Toaster />
     </div>

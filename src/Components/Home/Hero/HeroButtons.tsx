@@ -46,21 +46,19 @@ const HeroButtons = () => {
         setOpenModal={setOpenProjectModal}
         step={step}
         setStep={setStep}
-        handleNextStep={handleNextStep}
-        loading={loading}
         heading={
           step === 1 ? "What do you want?" : step === 2 ? "Tell us about your project" : "Success!"
         }
-      >
+        >
         {step === 1 && (
           <SelectService
             selectedService={selectedService}
             setSelectedService={setSelectedService}
+            loading={loading} setOpenModal={setOpenProjectModal} handleNextStep={handleNextStep}
           />
         )}
-
-        {step === 2 && <AboutProject />}
-        {step === 3 && <MessageReceived />}
+        {step === 2 && <AboutProject selectedService={selectedService} setOpenModal={setOpenProjectModal} handleNextStep={handleNextStep} />}
+        {step === 3 && <MessageReceived setOpenModal={setOpenProjectModal} />}
       </Modal>
     </div>
   );

@@ -2,15 +2,12 @@
 import { ICONS } from "@/assets";
 import Image from "next/image";
 import { ReactNode } from "react";
-import Spinner from "../Loaders/Spinner/Spinner";
 
 type TModal = {
   openModal: boolean;
   setOpenModal: (openModal: boolean) => void;
   step: number;
   setStep: (step: number) => void;
-  handleNextStep: () => void;
-  loading: boolean;
   heading: string;
   children: ReactNode;
 };
@@ -19,10 +16,7 @@ const Modal: React.FC<TModal> = ({
   setOpenModal,
   step,
   setStep,
-  handleNextStep,
-  loading,
   heading,
-
   children,
 }) => {
   return (
@@ -55,47 +49,7 @@ const Modal: React.FC<TModal> = ({
               onClick={() => setOpenModal(false)}
             />
           </div>
-
           <div className="mt-10">{children}</div>
-
-          {
-            step === 3 ?
-            <div className="flex items-center justify-center mt-7">
-              <button
-                  onClick={() => setOpenModal(false)}
-                  className="bg-gradient-to-r from-fuchsia-600 via-purple-600 to-violet-500 px-5 py-3 rounded-md focus:outline-none w-[150px] text-white/90 font-medium z-10"
-                >
-                  Close
-                </button>
-            </div>
-          :
-          <div className="w-full flex items-center justify-end gap-6 mt-10">
-            <button
-              onClick={() => setOpenModal(false)}
-              className="border border-purple-500 rounded-md focus:outline-none px-5 py-3 text-white/90 font-medium flex items-center gap-3 z-10"
-            >
-              Cancel
-            </button>
-
-            <div className="bg-gradient-to-r from-fuchsia-600 via-purple-600 to-violet-500 rounded-md focus:outline-none w-[150px] px-5 py-3 text-white/90 font-medium flex items-center justify-center gap-3 z-10">
-              {loading ? (
-                <Spinner />
-              ) : (
-                <button
-                  onClick={handleNextStep}
-                  className="bg-gradient-to-r from-fuchsia-600 via-purple-600 to-violet-500 rounded-md focus:outline-none w-[150px] text-white/90 font-medium flex items-center justify-center gap-3 z-10"
-                >
-                  Next
-                  <Image
-                    src={ICONS.rightArrow}
-                    alt="arrow-icon"
-                    className="size-5"
-                  />
-                </button>
-              )}
-            </div>
-          </div>
-          }
         </div>
       </div>
     </div>
