@@ -18,12 +18,12 @@ type TFormData = {
   from_name: string;
   phoneNumber: string;
   from_email: string;
-  applicationCategory : "Website" | "Android App" | "IOS App" | "UI/UX Design"; 
+  applicationCategory: "Website" | "Android App" | "IOS App" | "UI/UX Design";
   applicationType: string; // "E-commerce, Portfolio, Hospital etc"
   details?: string;
 };
 
-const AboutProject:React.FC<TAboutProjectProps> = ({ selectedService, setOpenModal, handleNextStep }) => {
+const AboutProject: React.FC<TAboutProjectProps> = ({ selectedService, setOpenModal, handleNextStep }) => {
   const { handleSubmit, register, reset, formState: { errors } } = useForm<TFormData>();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -101,15 +101,24 @@ const AboutProject:React.FC<TAboutProjectProps> = ({ selectedService, setOpenMod
         />
       </div>
       <TextInput
-        label="Type of website"
-        placeholder="E-commerce, Portfolio, Hospital etc"
+        label={`Type of ${selectedService}`}
+        placeholder={
+          selectedService === "Website"
+            ? "E-commerce, Portfolio, Hospital etc"
+            : selectedService === "Android App"
+              ? "Social Media, Delivery App, Fitness Tracker etc"
+              : selectedService === "IOS App"
+                ? "Music App, Productivity Tool, Game etc"
+                : "Wireframes, High-fidelity Design, Prototyping etc"
+        }
         error={errors.applicationType}
-        register={register("applicationType", { required: "Website type is required" })}
+        register={register("applicationType", { required: `${selectedService} type is required` })}
       />
+
       <TextAreaInput
         label="More about it (Optional)"
         rows={5}
-        placeholder="Please add a short detail about your website"
+        placeholder={`Please add a short detail about your ${selectedService}`}
         error={errors.details}
         register={register("details")}
       />

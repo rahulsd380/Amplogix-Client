@@ -37,14 +37,16 @@ const ProjectCard = ({ flexDirection }: { flexDirection: string }) => {
     }, [contentInView, imageInView, contentControls, imageControls, flexDirection]);
 
     return (
-        <div className={`font-Poppins flex items-center gap-20 overflow-hidden ${flexDirection}`}>
+        <div className={`font-Poppins flex items-center gap-20 overflow-hidden relative p-9 rounded-2xl ${flexDirection}`}>
+            <div className="hidden lg:block size-[400px] rounded-full bg-primary-20/10 bg-opacity-30 blur-[100px] absolute top-[50px] left-2"></div>
+            <div className="hidden lg:block size-[400px] rounded-full bg-primary-20/10 bg-opacity-30 blur-[100px] absolute top-4 right-0"></div>
             <motion.div
                 ref={contentRef}
                 initial={{ opacity: 0, x: flexDirection === "flex-row" ? -100 : 100 }}
                 animate={contentControls}
             >
                 <h1 className="bg-text-gradient bg-clip-text text-transparent text-6xl font-bold">
-                    Student Tiffin Service
+                    Student Tiffin
                 </h1>
                 <p className="text-neutral-15/60 mt-5 max-w-[700px] text-sm">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit beatae

@@ -51,7 +51,7 @@ const Navbar = () => {
     {
       label: "Contact Us",
       action: () => {
-        // router.push("/");
+        router.push("/");
         const contactUsSection = document.getElementById("contactUs");
         contactUsSection?.scrollIntoView({ behavior: "smooth" });
       },
@@ -59,7 +59,8 @@ const Navbar = () => {
     
   ];
   return (
-    <Container>
+    <div className="sticky top-0 bg-neutral-10 z-20 backdrop-blur-lg bg-transparent">
+      <Container>
       <div id="home" className="font-Poppins py-5 flex items-center justify-between">
         <Link href={"/"} className="text-3xl font-semibold bg-gradient-to-r from-fuchsia-600 via-purple-600 to-violet-500 bg-clip-text text-transparent flex items-center gap-3">
         <Image src={IMAGES.logo} alt="" className="w-8"/>
@@ -89,6 +90,7 @@ const Navbar = () => {
 
       </div>
     </Container>
+    </div>
   );
 };
 

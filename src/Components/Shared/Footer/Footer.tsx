@@ -1,8 +1,13 @@
 "use client";
 import { IMAGES } from "@/assets";
+import Modal from "@/Components/Modal/Modal";
 import Container from "@/Components/Reusable/Container/Container";
+import AboutProject from "@/Components/StartAProject/AboutProject";
+import MessageReceived from "@/Components/StartAProject/MessageReceived";
+import SelectService from "@/Components/StartAProject/SelectService";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { BsInstagram } from "react-icons/bs";
 import { FaFacebookF, FaLinkedinIn, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
@@ -86,6 +91,20 @@ const Footer = () => {
     },
   ];
 
+  const [openProjectModal, setOpenProjectModal] = useState<boolean>(false);
+  const [step, setStep] = useState<number>(1);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const [selectedService, setSelectedService] = useState("Website");
+
+  const handleNextStep = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setStep(step + 1);
+    }, 1300);
+  };
+
   const titleStyle =
     "bg-text-gradient bg-clip-text text-transparent text-2xl font-semibold font-Poppins";
 
@@ -119,12 +138,15 @@ const Footer = () => {
                 >
                   Contact Now
                 </button>
-                <Link
-                  href={"/"}
+                <button 
+                onClick={() => {
+                  setOpenProjectModal(true);
+                  setStep(1);
+                }}
                   className="bg-gradient-to-r from-fuchsia-600 via-purple-600 to-violet-500 rounded-md focus:outline-none px-5 py-3 text-white/90 font-medium flex items-center gap-3 z-10"
                 >
                   Start A Project
-                </Link>
+                </button>
               </div>
             </div>
 
@@ -178,9 +200,15 @@ const Footer = () => {
                     {/* <a href="tel:+880 1608 249337" className="hover:underline">
                       +880 1608 249337
                     </a> */}
-                    <a href="tel:+91 94208 32505" className="hover:underline flex items-center gap-[2px]">
-                      +91 94208 32505 (<FaWhatsapp className="" />)
+                    <a
+                      href="https://wa.me/919359963665"
+                      rel="noopener noreferrer"
+                      className="hover:underline flex items-center gap-[2px]"
+                      target="_blank"
+                    >
+                      +91 93599 63665 (<FaWhatsapp className="" />)
                     </a>
+
                   </div>
                 </div>
                 <div className="text-neutral-15 font-Poppins text-sm flex items-center gap-3">
@@ -193,10 +221,10 @@ const Footer = () => {
                       rahulsd380@gmail.com
                     </a> */}
                     <a
-                      href="mailto:prernabadwane@gmail.com"
+                      href="mailto:amplogix.in@gmail.com"
                       className="hover:underline"
                     >
-                      prerna@gmail.com
+                      amplogix.in@gmail.com
                     </a>
                   </div>
                 </div>
@@ -231,6 +259,26 @@ const Footer = () => {
         alt="linner-background"
         className="absolute top-0 bottom-0 right-0 left-0 h-full opacity-15 z-0"
       />
+
+      <Modal
+        openModal={openProjectModal}
+        setOpenModal={setOpenProjectModal}
+        step={step}
+        setStep={setStep}
+        heading={
+          step === 1 ? "What do you want?" : step === 2 ? "Tell us about your project" : "Success!"
+        }
+      >
+        {step === 1 && (
+          <SelectService
+            selectedService={selectedService}
+            setSelectedService={setSelectedService}
+            loading={loading} setOpenModal={setOpenProjectModal} handleNextStep={handleNextStep}
+          />
+        )}
+        {step === 2 && <AboutProject selectedService={selectedService} setOpenModal={setOpenProjectModal} handleNextStep={handleNextStep} />}
+        {step === 3 && <MessageReceived setOpenModal={setOpenProjectModal} />}
+      </Modal>
     </div>
   );
 };
