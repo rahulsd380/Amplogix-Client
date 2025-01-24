@@ -1,3 +1,4 @@
+import Blogs from "@/Components/Home/Blogs/Blogs";
 import ContactUs from "@/Components/Home/ContactUs/ContactUs";
 import Hero from "@/Components/Home/Hero/Hero";
 import OurServices from "@/Components/Home/OurServices/OurServices";
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <div>
       <Hero/>
+      <Blogs/>
       <TechToolBox/>
       <OurServices/>
       <WhyChooseUs/>

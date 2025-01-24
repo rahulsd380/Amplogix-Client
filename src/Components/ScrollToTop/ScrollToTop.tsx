@@ -19,7 +19,8 @@ const ScrollToTop = () => {
         <p className="animate-bounce text-xl">↑</p>
       </button>
         <a
-        href="https://wa.me/+919359963665"
+        href="https://wa.me/919359963665"
+        rel="noopener noreferrer"
         target="_blank"
         className="px-3 py-3 bg-gradient-to-r from-fuchsia-600 via-purple-600 to-violet-500 text-white rounded-b-xl shadow-lg hover:bg-purple-900 transition duration-300 border-t border-neutral-10/40"
         aria-label="Scroll to top"
