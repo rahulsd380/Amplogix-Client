@@ -11,6 +11,7 @@
 
 .custom-scrollbar::-webkit-scrollbar {
     width: 4px; /* Width of the scrollbar */
+    background-color: #131225;
   }
   
   .custom-scrollbar::-webkit-scrollbar-thumb {
@@ -21,4 +22,3 @@
   .custom-scrollbar::-webkit-scrollbar-track {
     background: transparent; /* Transparent track */
   }
-  

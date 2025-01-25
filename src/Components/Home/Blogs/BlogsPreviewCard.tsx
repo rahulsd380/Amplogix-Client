@@ -32,7 +32,7 @@ const BlogsPreviewCard :React.FC<BlogPreviewCardDetailsProps> = ({
             <div className="bg-gradient-to-r from-fuchsia-600/30 via-purple-500/30 to-violet-300/25 px-2 py-1 text-white w-fit rounded-lg text-[10px] ">
               {category}
             </div>
-            <h1 className="text-lg bg-text-gradient bg-clip-text text-transparent  font-semibold mt-1">
+            <h1 className="text-lg bg-text-gradient bg-clip-text text-transparent  font-semibold mt-2">
               {title}
             </h1>
             <div className="flex items-center justify-start gap-[10px] my-2 h-[18px]">
