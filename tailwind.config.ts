@@ -18,12 +18,14 @@ export default {
         primary : {
           10 : "",
           20 : "#d946ef",
-          30 : ''
+          30 : "#d946ef33"
       },
         neutral : {
           10 : "#010313",
           15 : "#CACACA",
-          20 : "#ffffff0d"
+          20 : "#ffffff0d",
+          30 : "#999999",
+          40 : "#ffffff99",
         }
         ,
         border:{
