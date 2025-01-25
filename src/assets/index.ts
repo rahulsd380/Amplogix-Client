@@ -53,6 +53,10 @@ import webDevelopment from "../assets/images/Services/Web-Development.png";
 import performanceOptimization from "../assets/images/Services/performance-optimization.png";
 import uiUx from "../assets/images/Services/ui-ux.png";
 
+// blogs
+import calender from "../assets/icons/calender.svg";
+import clock from "../assets/icons/clock.svg";
+
 // Animations
 // import webDevelopment from "../assets/animations/Animation - 1734857518842.json";
 // import webDevelopment2 from "../assets/animations/Animation - 1734857605179.json";
@@ -117,6 +121,9 @@ export const ICONS = {
     menu,
     pointer,
     live,
+
+    calender,
+    clock
 };
 
 // export const ANIMATIONS = {
