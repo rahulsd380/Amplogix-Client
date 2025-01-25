@@ -20,7 +20,7 @@ const Blogs = () => {
             </span>
             This Month
           </h1>
-          <div className="h-[420px] overflow-y-auto flex flex-col gap-7 custom-scrollbar mt-16 pr-6">
+          <div className="h-[420px] overflow-y-auto flex flex-col gap-7 custom-scrollbar mt-12 pr-6">
           <BlogCardDetails
             category="Web Development"
             title="Why do you need a website for your business?"
@@ -50,7 +50,7 @@ const Blogs = () => {
             </span>
             Posted
           </h1>
-          <div className="mt-16">
+          <div className="mt-12">
       <Swiper
         modules={[Pagination]}
         pagination={{ clickable: true }}
