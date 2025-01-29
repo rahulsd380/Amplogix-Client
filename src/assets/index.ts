@@ -53,6 +53,10 @@ import webDevelopment from "../assets/images/Services/Web-Development.png";
 import performanceOptimization from "../assets/images/Services/performance-optimization.png";
 import uiUx from "../assets/images/Services/ui-ux.png";
 
+import bgImage404 from "../assets/images/Background.png";
+import gif404 from "../assets/images/404.gif";
+import four from "../assets/images/4.svg";
+
 // blogs
 import calender from "../assets/icons/calender.svg";
 import clock from "../assets/icons/clock.svg";
@@ -89,6 +93,9 @@ export const IMAGES = {
     frontendDevelopment,
     backendDevelopment,
     seo,
+    bgImage404,
+    gif404,
+    four
 };
 
 export const ICONS = {
